@@ -28,7 +28,7 @@
     	<br>
     	<p><b>Body:</b> {{ $post->body }}</p>
     	<br>
-    	<p><a href="posts/{{ $post->id }}/comments">Read more to see comments</a></p>
+    	<p><a href='{{ URL("posts/$post->id/comments") }}'>Read more to see comments</a></p>
     </div>
 	@endforeach
 </div>

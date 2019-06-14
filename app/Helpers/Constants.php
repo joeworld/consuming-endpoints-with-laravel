@@ -8,7 +8,7 @@
 
 # Pagination/List limit
 if(!defined('LIMIT_LIST'))
-	define('LIMIT_LIST', 10);
+	define('LIMIT_LIST', 70);
 
 # Constant for USERS_ENDPOINT
 

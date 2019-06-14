@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'HomeController@index')->name('homepage');
+
+Route::get('posts', 'HomeController@index');
+
+Route::get('posts/{postid}/comments', 'HomeController@comments')->name('comments');
+
+Route::get('posts/{postid}', 'HomeController@post')->name('post');
+
+Route::get('users/{id}', 'HomeController@user')->name('user');
+
+Route::get('users', 'HomeController@users')->name('users');

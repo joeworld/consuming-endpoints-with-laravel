@@ -22,6 +22,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
+        echo "<pre>"; // Returns data in preformatted text
         return $this->repo->getAll(COMMENTS_ENDPOINT);
     }
 
@@ -32,6 +33,7 @@ class CommentsController extends Controller
      */
     public function getCommentByPost($postid)
     {
+        echo "<pre>"; // Returns data in preformatted text
         return $this->repo->getCommentsByPost(COMMENTS_ENDPOINT, $postid);
     }
 
@@ -43,6 +45,7 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
+        echo "<pre>"; // Returns data in preformatted text
         return $this->repo->get(COMMENTS_ENDPOINT, $id);
     }
 

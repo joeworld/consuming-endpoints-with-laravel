@@ -22,6 +22,7 @@ class PostsController extends Controller
      */
     public function index()
     {
+        echo "<pre>"; // Returns data in preformatted text
         return $this->repo->getAll(POSTS_ENDPOINT);
     }
 
@@ -34,6 +35,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+        echo "<pre>"; // Returns data in preformatted text
         return $this->repo->get(POSTS_ENDPOINT, $id);
     }
 
@@ -46,6 +48,7 @@ class PostsController extends Controller
      */
     public function userPosts($userid)
     {
+        echo "<pre>"; // Returns data in preformatted text
         return $this->repo->getPostsByUser(POSTS_ENDPOINT, $userid);
     }
 

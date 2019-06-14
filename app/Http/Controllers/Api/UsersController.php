@@ -22,6 +22,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+       echo "<pre>"; // Returns data in preformatted text
        return $this->repo->getAll(USERS_ENDPOINT);
     }
 
@@ -34,6 +35,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
+        echo "<pre>"; // Returns data in preformatted text
         return $this->repo->get(USERS_ENDPOINT, $id);
     }
 

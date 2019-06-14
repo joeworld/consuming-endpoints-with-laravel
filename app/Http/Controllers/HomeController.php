@@ -70,6 +70,15 @@ class HomeController extends Controller
 
     }
 
+    public function userPost($userid){ 
+
+     $posts = $this->getPostsByUser($userid);
+     $user = $this->getUser($userid);
+
+     return view('userposts')->withPosts($posts)->withUser($user);
+
+    }
+
     private function jsonToArray($json){
 
        $array = json_decode($json);
@@ -100,6 +109,14 @@ class HomeController extends Controller
        $post = $this->jsonToArray($this->posts->get(POSTS_ENDPOINT, $id));
 
        return $post;
+
+    }
+
+    public function getPostsByUser($userid){ 
+       
+       $posts = $this->jsonToArray($this->posts->getPostsByUser(POSTS_ENDPOINT, $userid));
+
+       return $posts;
 
     }
 

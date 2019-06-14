@@ -32,6 +32,7 @@
         <p><b>User City:</b> {{ $user->address->city }}</p>
         <p><b>User Location Latitude:</b> {{ $user->address->geo->lat }}</p>
         <p><b>User Location Lng:</b> {{ $user->address->geo->lng }}</p>
+        <p><a href='{{ URL("users/$user->id/posts") }}'>Read my Posts</a></p>
         <p><a href='{{ URL("users") }}'>Click to see other users</a></p>
     </div>
 </div>

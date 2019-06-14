@@ -23,3 +23,5 @@ Route::get('posts/{postid}', 'HomeController@post')->name('post');
 Route::get('users/{id}', 'HomeController@user')->name('user');
 
 Route::get('users', 'HomeController@users')->name('users');
+
+Route::get('users/{id}/posts', 'HomeController@userPost')->name('userPost');

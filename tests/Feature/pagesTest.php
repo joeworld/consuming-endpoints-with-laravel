@@ -43,4 +43,11 @@ class pagesTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function testUserPostTest()
+    {
+        $response = $this->get('users/1/posts');
+
+        $response->assertStatus(200);
+    }
+
 }

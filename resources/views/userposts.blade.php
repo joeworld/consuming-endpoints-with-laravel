@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Post from Json Typicode</title>
+	<title>Posts from Json Typicode</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,16 +20,17 @@
 <body>
 
 <div class="container">
+<h3>Posts by {{ $user->name }}</h3>
 <div class="row">
+    @foreach($posts as $post)
     <div class="col-md-4 jumbotron">
     	<p><b>Title:</b> {{ $post->title }}</p>
     	<br>
     	<p><b>Body:</b> {{ $post->body }}</p>
     	<br>
-    	<p><b>Author:</b> <a href='{{ URL("users/$post->userId") }}'>{{ $object->getUser($post->userId)->name }}</a></p>
-        <p><a href='{{ URL("posts/$post->id/comments") }}'>Click to see comments</a></p>
-    	
+    	<p><a href="posts/{{ $post->id }}/comments">Read more to see comments</a></p>
     </div>
+	@endforeach
 </div>
 
 </div>

@@ -5,6 +5,7 @@ namespace App\AppRepositories;
 use App\AppRepositories\Contracts\RepositoryInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use App\Helpers\Cache;
 
 /*
 |-----------------------------------------------------------------------------------
@@ -36,8 +37,14 @@ class CommentRepository implements RepositoryInterface {
 	public function getAll($apiUrl)
 	{
 
+		//Using the App/Helpers/Cache to set cache for response that aren't cached yet else return cached data
+
+        return Cache::remember('comments.all', REDIS_EXPIRATION, function() use($apiUrl){
+
         $newUrl = $apiUrl."?_limit=".LIMIT_LIST;
         return $this->client->request('GET', $newUrl)->getBody();
+
+        });
 
 	}
 
@@ -52,8 +59,14 @@ class CommentRepository implements RepositoryInterface {
 	public function get($apiUrl, $id)
 	{
 		
+		//Using the App/Helpers/Cache to set cache for response that aren't cached yet else return cached data
+
+		return Cache::remember('comments.single_'.$id, REDIS_EXPIRATION, function() use($apiUrl, $id){
+
         $newUrl = $apiUrl."/".$id;
         return $this->client->request('GET', $newUrl)->getBody();
+
+        });
 
 	}
 
@@ -68,9 +81,14 @@ class CommentRepository implements RepositoryInterface {
 	public function getCommentsByPost($apiUrl, $postId)
 	{
 
+		//Using the App/Helpers/Cache to set cache for response that aren't cached yet else return cached data
+
+		return Cache::remember('comments.commentsByPost_'.$postId, REDIS_EXPIRATION, function() use($apiUrl, $postId){
+
 		$client = new Client();
 		$newUrl = $apiUrl."/".$postId."/comments?_limit=".LIMIT_LIST;
 		return $this->client->request('GET', $newUrl)->getBody();
+	    });
 
 	}
 

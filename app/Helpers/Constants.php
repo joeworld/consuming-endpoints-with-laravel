@@ -23,3 +23,7 @@ if(!defined('POSTS_ENDPOINT'))
 # Constant for COMMENTS_ENDPOINT
 if(!defined('COMMENTS_ENDPOINT'))
 	define('COMMENTS_ENDPOINT', "https://jsonplaceholder.typicode.com/comments");
+
+# Constant for storing data into redis for the next 24hrs
+if(!defined('REDIS_EXPIRATION'))
+	define('REDIS_EXPIRATION', 60*60*24);

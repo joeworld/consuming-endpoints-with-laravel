@@ -9,7 +9,6 @@ Add a .env file and generate application key.
 
 Change redis configuration if you have to in config/database.php.
 
-
 Libraries used:- Guzzle as my HTTP client/Network request library. Its extensible, Reddis as my Caching library to reduce page loads/latency.
 
 Patterns:- Repository Pattern.
@@ -17,6 +16,7 @@ Patterns:- Repository Pattern.
 Tests:- PHPUnit. Check tests/Feature directory to see all tests.
 
 app/Helpers:- To see all custom helpers.
+I limit the amount of data to be collected from the endpoint to 70, to increase this go to app/Helpers/Constants.php and change LIMIT_LIST value to which ever number you prefer.
 
 
 ***The Homepage shows all posts with their users like a blog format*** and you can further navigate to other users and their posts***
